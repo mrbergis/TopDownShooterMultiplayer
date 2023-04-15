@@ -120,9 +120,15 @@ public class WeaponLogic : MonoBehaviour
             if (bulletImpactObj)
             {
                 ShootEffect(rayHit.point, Quaternion.FromToRotation(Vector3.up, rayHit.normal)* Quaternion.Euler(-90, 0, 0));
-                // GameObject.Instantiate(bulletImpactObj, rayHit.point,
-                //     Quaternion.FromToRotation(Vector3.up, rayHit.normal)
-                //     * Quaternion.Euler(-90, 0, 0));
+            }
+
+            if (rayHit.collider.tag == "Player")
+            {
+                PlayerLogic playerLogic = rayHit.collider.GetComponent<PlayerLogic>();
+                if (playerLogic)
+                {
+                    playerLogic.TakeDamage(30);
+                }
             }
         }
     }

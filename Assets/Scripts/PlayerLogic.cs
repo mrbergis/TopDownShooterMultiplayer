@@ -16,6 +16,10 @@ public class PlayerLogic : MonoBehaviour
     const float MOVEMENT_SPEED = 5.0f;
     
     Animator _animator;
+    
+    const int MAX_HEALTH = 100;
+    int _health = MAX_HEALTH;
+    bool _isDead = false;
 
     void Start()
     {
@@ -25,6 +29,11 @@ public class PlayerLogic : MonoBehaviour
     
     void Update()
     {
+        if (_isDead)
+        {
+            return;
+        }
+        
         _horizontalInput = Input.GetAxis("Horizontal");
         _verticalInput = Input.GetAxis("Vertical");
 
@@ -34,6 +43,11 @@ public class PlayerLogic : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (_isDead)
+        {
+            return;
+        }
+        
         _horizontalMovement = Vector3.right * _horizontalInput * MOVEMENT_SPEED * Time.deltaTime;
         _verticalMovement = Vector3.forward * _verticalInput * MOVEMENT_SPEED * Time.deltaTime;
 
@@ -66,5 +80,26 @@ public class PlayerLogic : MonoBehaviour
             _animator.SetFloat("VerticalInput", dotProduct);
             _animator.SetFloat("HorizontalInput", dotProductStrafe);
         }
+    }
+    
+    public void TakeDamage(int damage)
+    {
+        _health -= damage;
+        _health = Mathf.Clamp(_health, 0, 100);
+
+        if (_health <= 0)
+        {
+            Die();
+        }
+    }
+    
+    void Die()
+    {
+        if(_animator)
+        {
+            _animator.SetTrigger("Death");
+        }
+
+        _isDead = true;
     }
 }
