@@ -208,6 +208,7 @@ Transform:
   - {fileID: 4033901777884341870}
   - {fileID: 4033901777884342192}
   - {fileID: 4033901777884342194}
+  - {fileID: 7460410585399656626}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -260,11 +261,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da03ff358e7d146cc93507bab36aad9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthText: {fileID: 0}
   blueMaterial: {fileID: 2100000, guid: 55a3af0758b9b4b7786b0c0d5cfd17b7, type: 2}
   redMaterial: {fileID: 2100000, guid: 5f4dd7f64a7fd43c38e5e829cb6e8ffc, type: 2}
   bodyRenderer: {fileID: 4033901777879037724}
   headRenderer: {fileID: 4033901777879037726}
+  playerIndicatorLight: {fileID: 3050032073148424963}
 --- !u!114 &8712712920646905538
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -642,11 +643,79 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletImpactObj: {fileID: 100006, guid: 94a130fb17f1cae4388a8fe1d8bd3055, type: 3}
-  ammoText: {fileID: 0}
   shootSound: {fileID: 8300000, guid: 6ae494d30058b4678ad4505f66575403, type: 3}
   emptyClipSound: {fileID: 8300000, guid: bf1dec11e90cd46d7993c0cd61c3ab7c, type: 3}
   reloadingSound: {fileID: 8300000, guid: e97a83125b25941c8913a27e35c28ab9, type: 3}
   bulletSpawn: {fileID: 4033901776495832918}
+--- !u!1 &5047752184663918078
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7460410585399656626}
+  - component: {fileID: 3050032073148424963}
+  m_Layer: 0
+  m_Name: Point Light
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7460410585399656626
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5047752184663918078}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.16, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4033901777884342188}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!108 &3050032073148424963
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5047752184663918078}
+  m_Enabled: 1
+  serializedVersion: 8
+  m_Type: 2
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 1
+  m_Range: 10
+  m_SpotAngle: 30
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_Lightmapping: 4
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
 --- !u!1001 &4033901777294892964
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -822,15 +891,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ba6bf58d589f4882825b86637dcaa95, type: 3}
---- !u!4 &4033901777935823421 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 400000, guid: 3ba6bf58d589f4882825b86637dcaa95,
-    type: 3}
-  m_PrefabInstance: {fileID: 4033901777935427773}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &4033901777935527453 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 3ba6bf58d589f4882825b86637dcaa95,
+    type: 3}
+  m_PrefabInstance: {fileID: 4033901777935427773}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4033901777935823421 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400000, guid: 3ba6bf58d589f4882825b86637dcaa95,
     type: 3}
   m_PrefabInstance: {fileID: 4033901777935427773}
   m_PrefabAsset: {fileID: 0}

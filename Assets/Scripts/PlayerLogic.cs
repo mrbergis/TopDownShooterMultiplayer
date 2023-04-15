@@ -42,6 +42,10 @@ public class PlayerLogic : NetworkBehaviour
     SkinnedMeshRenderer headRenderer;
     
     NetworkAnimator _networkAnimator;
+    
+    [SerializeField]
+    Light playerIndicatorLight;
+    
     void Start()
     {
         _characterController = GetComponent<CharacterController>();
@@ -55,6 +59,11 @@ public class PlayerLogic : NetworkBehaviour
         }
         
         SetHealthText();
+        
+        if(!isLocalPlayer)
+        {
+            playerIndicatorLight.enabled = false;
+        }
     }
 
     public override void OnStartClient()
