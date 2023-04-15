@@ -57,6 +57,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\NetworkManagerPlus.cs" />
     <Compile Include="Assets\Scripts\PlayerLogic.cs" />
     <Compile Include="Assets\Scripts\ReloadBehaviour.cs" />
     <Compile Include="Assets\Scripts\WeaponLogic.cs" />

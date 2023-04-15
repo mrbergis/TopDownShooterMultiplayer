@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class PlayerLogic : MonoBehaviour
+public class PlayerLogic : NetworkBehaviour
 {
     CharacterController _characterController;
 
@@ -43,7 +41,7 @@ public class PlayerLogic : MonoBehaviour
     
     void Update()
     {
-        if (_isDead)
+        if (_isDead || !isLocalPlayer)
         {
             return;
         }
@@ -57,7 +55,7 @@ public class PlayerLogic : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (_isDead)
+        if (_isDead || !isLocalPlayer)
         {
             return;
         }
@@ -122,5 +120,10 @@ public class PlayerLogic : MonoBehaviour
     public bool IsDead()
     {
         return _isDead;
+    }
+    
+    public bool IsLocalPlayer()
+    {
+        return isLocalPlayer;
     }
 }
