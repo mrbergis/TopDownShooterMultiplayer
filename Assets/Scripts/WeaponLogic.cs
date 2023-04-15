@@ -67,12 +67,7 @@ public class WeaponLogic : MonoBehaviour
         {
             _muzzleFlashLight.enabled = false;
         }
-
-        if (_playerLogic)
-        {
-            return;
-        }
-
+        
         if(_cooldown > 0.0f)
         {
             _cooldown -= Time.deltaTime;
@@ -97,7 +92,7 @@ public class WeaponLogic : MonoBehaviour
 
         if(Input.GetButtonDown("Fire2") )
         {
-            
+            Reload();
         }
     }
 
@@ -106,6 +101,30 @@ public class WeaponLogic : MonoBehaviour
         --_ammoCount;
         SetAmmoText();
         
+        if (_animator)
+        {
+            _animator.SetTrigger("Shoot");
+        }
+        
+        PlaySound(shootSound);
+        
+        Ray ray = new Ray(bulletSpawn.transform.position, bulletSpawn.transform.forward);
+        RaycastHit rayHit;
+
+        if (Physics.Raycast(ray, out rayHit, 100.0f))
+        {
+            Debug.Log("Hit object: " + rayHit.collider.name);
+            Debug.Log("Hit Pos: " + rayHit.point);
+
+            // Spawn Bullet Impact FX
+            if (bulletImpactObj)
+            {
+                ShootEffect(rayHit.point, Quaternion.FromToRotation(Vector3.up, rayHit.normal)* Quaternion.Euler(-90, 0, 0));
+                // GameObject.Instantiate(bulletImpactObj, rayHit.point,
+                //     Quaternion.FromToRotation(Vector3.up, rayHit.normal)
+                //     * Quaternion.Euler(-90, 0, 0));
+            }
+        }
     }
 
     public void ShootEffect(Vector3 impactPosition, Quaternion impactRotation)
@@ -155,7 +174,7 @@ public class WeaponLogic : MonoBehaviour
     {
         _isReloading = isReloading;
 
-        if(!isReloading)
+        if(!_isReloading)
         {
             _ammoCount = MAX_AMMO;
             SetAmmoText();

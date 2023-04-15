@@ -16,7 +16,7 @@ public class PlayerLogic : MonoBehaviour
     const float MOVEMENT_SPEED = 5.0f;
     
     Animator _animator;
-    
+
     void Start()
     {
         _characterController = GetComponent<CharacterController>();
