@@ -167,18 +167,32 @@ public class PlayerLogic : NetworkBehaviour
     
     public void TakeDamage(int damage)
     {
+        if(!isServer)
+        {
+            return;
+        }
+
         _health -= damage;
         _health = Mathf.Clamp(_health, 0, 100);
-        
-        SetHealthText();
+
+        RpcSetHealth(_health);
 
         if (_health <= 0)
         {
-            Die();
+            RpcDie();
         }
     }
     
-    void Die()
+    [ClientRpc]
+    void RpcSetHealth(int health)
+    {
+        _health = health;
+
+        SetHealthText();
+    }
+
+    [ClientRpc]
+    void RpcDie()
     {
         if(_animator)
         {
@@ -187,7 +201,7 @@ public class PlayerLogic : NetworkBehaviour
 
         _isDead = true;
     }
-
+    
     public bool IsDead()
     {
         return _isDead;
