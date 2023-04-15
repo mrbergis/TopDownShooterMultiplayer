@@ -29,6 +29,7 @@ public class PlayerLogic : NetworkBehaviour
     [SerializeField] 
     private TMP_Text healthText;
     
+    [SyncVar]
     Team _team = Team.Blue;
     
     [SerializeField]
@@ -51,6 +52,11 @@ public class PlayerLogic : NetworkBehaviour
         SetHealthText();
     }
 
+    public override void OnStartClient()
+    {
+        SetColor(_team);
+    }
+    
     private void SetHealthText()
     {
         if (healthText)
@@ -60,6 +66,12 @@ public class PlayerLogic : NetworkBehaviour
     }
     
     public void SetTeam(Team team)
+    {
+        RpcSetTeam(team);
+    }
+    
+    [ClientRpc]
+    void RpcSetTeam(Team team)
     {
         _team = team;
         SetColor(_team);
