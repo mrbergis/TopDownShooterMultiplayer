@@ -183,6 +183,7 @@ GameObject:
   - component: {fileID: 8712712920646905538}
   - component: {fileID: 2939167430494035580}
   - component: {fileID: 1373735119979379470}
+  - component: {fileID: 26331017190016003}
   m_Layer: 0
   m_Name: SWAT
   m_TagString: Player
@@ -338,6 +339,18 @@ MonoBehaviour:
   m_MovementThreshold: 0.001
   m_InterpolateRotation: 0.5
   m_InterpolateMovement: 0.5
+--- !u!114 &26331017190016003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4033901777884248972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3629bd394c42c49df8ba98b35ad4ccb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4033901777884248976
 GameObject:
   m_ObjectHideFlags: 0
@@ -788,15 +801,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ba6bf58d589f4882825b86637dcaa95, type: 3}
---- !u!1 &4033901777935527453 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100000, guid: 3ba6bf58d589f4882825b86637dcaa95,
-    type: 3}
-  m_PrefabInstance: {fileID: 4033901777935427773}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4033901777935823421 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 3ba6bf58d589f4882825b86637dcaa95,
+    type: 3}
+  m_PrefabInstance: {fileID: 4033901777935427773}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4033901777935527453 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: 3ba6bf58d589f4882825b86637dcaa95,
     type: 3}
   m_PrefabInstance: {fileID: 4033901777935427773}
   m_PrefabAsset: {fileID: 0}

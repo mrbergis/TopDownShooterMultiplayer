@@ -43,6 +43,7 @@ public class WeaponLogic : MonoBehaviour
 
     PlayerLogic _playerLogic;
     
+    WeaponLogicMP _weaponLogicMP;
     
     void Start()
     {
@@ -53,6 +54,8 @@ public class WeaponLogic : MonoBehaviour
         _audioSource = GetComponent<AudioSource>();
 
         _playerLogic = GetComponentInParent<PlayerLogic>();
+        
+        _weaponLogicMP = GetComponentInParent<WeaponLogicMP>();
 
         SetAmmoText();
     }
@@ -95,9 +98,9 @@ public class WeaponLogic : MonoBehaviour
             }
         }
 
-        if(Input.GetButtonDown("Fire2") )
+        if(Input.GetButtonDown("Fire2") && _weaponLogicMP)
         {
-            Reload();
+            _weaponLogicMP.CmdReload();
         }
     }
 
@@ -106,35 +109,9 @@ public class WeaponLogic : MonoBehaviour
         --_ammoCount;
         SetAmmoText();
         
-        if (_animator)
+        if(_weaponLogicMP)
         {
-            _animator.SetTrigger("Shoot");
-        }
-        
-        PlaySound(shootSound);
-        
-        Ray ray = new Ray(bulletSpawn.transform.position, bulletSpawn.transform.forward);
-        RaycastHit rayHit;
-
-        if (Physics.Raycast(ray, out rayHit, 100.0f))
-        {
-            Debug.Log("Hit object: " + rayHit.collider.name);
-            Debug.Log("Hit Pos: " + rayHit.point);
-
-            // Spawn Bullet Impact FX
-            if (bulletImpactObj)
-            {
-                ShootEffect(rayHit.point, Quaternion.FromToRotation(Vector3.up, rayHit.normal)* Quaternion.Euler(-90, 0, 0));
-            }
-
-            if (rayHit.collider.tag == "Player")
-            {
-                PlayerLogic playerLogic = rayHit.collider.GetComponent<PlayerLogic>();
-                if (playerLogic)
-                {
-                    playerLogic.TakeDamage(30);
-                }
-            }
+            _weaponLogicMP.CmdShoot();
         }
     }
 
@@ -199,6 +176,11 @@ public class WeaponLogic : MonoBehaviour
             _audioSource.volume = volume;
             _audioSource.PlayOneShot(sound);
         }
+    }
+    
+    public Transform GetBulletSpawn()
+    {
+        return bulletSpawn;
     }
     
     void SetAmmoText()

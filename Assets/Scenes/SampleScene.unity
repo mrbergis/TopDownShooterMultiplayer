@@ -284,7 +284,7 @@ GameObject:
   - component: {fileID: 260020290}
   - component: {fileID: 260020289}
   m_Layer: 0
-  m_Name: SpawnPos1
+  m_Name: BlueSpawnPos1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -361,7 +361,7 @@ GameObject:
   - component: {fileID: 316651602}
   - component: {fileID: 316651601}
   m_Layer: 0
-  m_Name: SpawnPos0
+  m_Name: BlueSpawnPos0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -813,10 +813,10 @@ MonoBehaviour:
   matchMaker: {fileID: 0}
   m_spawnPositions:
   - {fileID: 316651603}
-  - {fileID: 260020291}
-  - {fileID: 1878273924}
   - {fileID: 1750726874}
+  - {fileID: 260020291}
   - {fileID: 2120131306}
+  - {fileID: 1878273924}
   - {fileID: 569437141}
 --- !u!4 &393238342
 Transform:
@@ -1100,7 +1100,7 @@ GameObject:
   - component: {fileID: 569437140}
   - component: {fileID: 569437139}
   m_Layer: 0
-  m_Name: SpawnPos5
+  m_Name: RedSpawnPos2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1897,7 +1897,7 @@ GameObject:
   - component: {fileID: 1750726873}
   - component: {fileID: 1750726872}
   m_Layer: 0
-  m_Name: SpawnPos3
+  m_Name: RedSpawnPos0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2065,7 +2065,7 @@ GameObject:
   - component: {fileID: 1878273923}
   - component: {fileID: 1878273922}
   m_Layer: 0
-  m_Name: SpawnPos2
+  m_Name: BlueSpawnPos2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2338,7 +2338,7 @@ GameObject:
   - component: {fileID: 2120131305}
   - component: {fileID: 2120131304}
   m_Layer: 0
-  m_Name: SpawnPos4
+  m_Name: RedSpawnPos1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -61,6 +61,7 @@
     <Compile Include="Assets\Scripts\PlayerLogic.cs" />
     <Compile Include="Assets\Scripts\ReloadBehaviour.cs" />
     <Compile Include="Assets\Scripts\WeaponLogic.cs" />
+    <Compile Include="Assets\Scripts\WeaponLogicMP.cs" />
     <Compile Include="Assets\WarFX\Demo\Assets\CFX_AutoStopLoopedEffect.cs" />
     <Compile Include="Assets\WarFX\Demo\Assets\CFX_Demo_RandomDir.cs" />
     <Compile Include="Assets\WarFX\Demo\Assets\CFX_Demo_RotateCamera.cs" />
