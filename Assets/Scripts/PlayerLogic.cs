@@ -44,11 +44,19 @@ public class PlayerLogic : NetworkBehaviour
     [SerializeField]
     SkinnedMeshRenderer headRenderer;
     
+    NetworkAnimator _networkAnimator;
     void Start()
     {
         _characterController = GetComponent<CharacterController>();
         _animator = GetComponent<Animator>();
-
+        
+        _networkAnimator = GetComponent<NetworkAnimator>();
+        if(_networkAnimator)
+        {
+            _networkAnimator.SetParameterAutoSend(0, true);
+            _networkAnimator.SetParameterAutoSend(1, true);
+        }
+        
         SetHealthText();
     }
 
