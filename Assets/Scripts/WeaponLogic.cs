@@ -67,6 +67,11 @@ public class WeaponLogic : MonoBehaviour
         {
             _muzzleFlashLight.enabled = false;
         }
+
+        if (_playerLogic && _playerLogic.IsDead())
+        {
+            return;
+        }
         
         if(_cooldown > 0.0f)
         {

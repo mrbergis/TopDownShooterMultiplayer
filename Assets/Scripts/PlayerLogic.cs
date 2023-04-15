@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PlayerLogic : MonoBehaviour
@@ -21,10 +22,23 @@ public class PlayerLogic : MonoBehaviour
     int _health = MAX_HEALTH;
     bool _isDead = false;
 
+    [SerializeField] 
+    private TMP_Text healthText;
+    
     void Start()
     {
         _characterController = GetComponent<CharacterController>();
         _animator = GetComponent<Animator>();
+
+        SetHealthText();
+    }
+
+    private void SetHealthText()
+    {
+        if (healthText)
+        {
+            healthText.text = "Health: " + _health;
+        }
     }
     
     void Update()
@@ -86,6 +100,8 @@ public class PlayerLogic : MonoBehaviour
     {
         _health -= damage;
         _health = Mathf.Clamp(_health, 0, 100);
+        
+        SetHealthText();
 
         if (_health <= 0)
         {
@@ -101,5 +117,10 @@ public class PlayerLogic : MonoBehaviour
         }
 
         _isDead = true;
+    }
+
+    public bool IsDead()
+    {
+        return _isDead;
     }
 }
