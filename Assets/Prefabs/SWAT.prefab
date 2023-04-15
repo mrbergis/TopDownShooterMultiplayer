@@ -259,6 +259,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthText: {fileID: 0}
+  blueMaterial: {fileID: 2100000, guid: 55a3af0758b9b4b7786b0c0d5cfd17b7, type: 2}
+  redMaterial: {fileID: 2100000, guid: 5f4dd7f64a7fd43c38e5e829cb6e8ffc, type: 2}
+  bodyRenderer: {fileID: 4033901777879037724}
+  headRenderer: {fileID: 4033901777879037726}
 --- !u!114 &8712712920646905538
 MonoBehaviour:
   m_ObjectHideFlags: 0

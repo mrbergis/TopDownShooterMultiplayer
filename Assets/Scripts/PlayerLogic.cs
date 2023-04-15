@@ -2,6 +2,12 @@
 using UnityEngine;
 using UnityEngine.Networking;
 
+public enum Team
+{
+    Blue,
+    Red
+}
+
 public class PlayerLogic : NetworkBehaviour
 {
     CharacterController _characterController;
@@ -23,6 +29,20 @@ public class PlayerLogic : NetworkBehaviour
     [SerializeField] 
     private TMP_Text healthText;
     
+    Team _team = Team.Blue;
+    
+    [SerializeField]
+    Material blueMaterial;
+
+    [SerializeField]
+    Material redMaterial;
+
+    [SerializeField]
+    SkinnedMeshRenderer bodyRenderer;
+
+    [SerializeField]
+    SkinnedMeshRenderer headRenderer;
+    
     void Start()
     {
         _characterController = GetComponent<CharacterController>();
@@ -37,6 +57,37 @@ public class PlayerLogic : NetworkBehaviour
         {
             healthText.text = "Health: " + _health;
         }
+    }
+    
+    public void SetTeam(Team team)
+    {
+        _team = team;
+        SetColor(_team);
+    }
+    
+    void SetColor(Team team)
+    {
+        if (_team == Team.Blue)
+        {
+            SetMaterial(blueMaterial);
+        }
+        else if (_team == Team.Red)
+        {
+            SetMaterial(redMaterial);
+        }
+    }
+    
+    void SetMaterial(Material material)
+    {
+        // Body
+        Material[] mats = bodyRenderer.materials;
+        mats[0] = material;
+        bodyRenderer.materials = mats;
+
+        // Head
+        mats = headRenderer.materials;
+        mats[0] = material;
+        headRenderer.materials = mats;
     }
     
     void Update()

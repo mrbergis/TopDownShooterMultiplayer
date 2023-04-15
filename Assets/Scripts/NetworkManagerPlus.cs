@@ -13,6 +13,8 @@ public class NetworkManagerPlus : NetworkManager
         GameObject player = (GameObject)Instantiate(playerPrefab, GetSpawnPosition(numPlayers), Quaternion.identity);
         NetworkServer.AddPlayerForConnection(conn, player, playerControllerId);
         
+        player.GetComponent<PlayerLogic>().SetTeam((numPlayers - 1) % 2 == 0 ? Team.Blue : Team.Red);
+        
         Debug.Log("Player spawned with Index: " + (numPlayers - 1));
     }
 
