@@ -25,9 +25,6 @@ public class PlayerLogic : NetworkBehaviour
     const int MAX_HEALTH = 100;
     int _health = MAX_HEALTH;
     bool _isDead = false;
-
-    [SerializeField] 
-    private TMP_Text healthText;
     
     [SyncVar]
     Team _team = Team.Blue;
@@ -67,9 +64,9 @@ public class PlayerLogic : NetworkBehaviour
     
     private void SetHealthText()
     {
-        if (healthText)
+        if (isLocalPlayer)
         {
-            healthText.text = "Health: " + _health;
+            UIManager.Instance.SetHealthText(_health);
         }
     }
     

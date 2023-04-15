@@ -25,9 +25,6 @@ public class WeaponLogic : MonoBehaviour
     bool _isReloading = false;
 
     AudioSource _audioSource;
-
-    [SerializeField] 
-    private TMP_Text ammoText;
     
     [SerializeField]
     AudioClip shootSound;
@@ -185,9 +182,9 @@ public class WeaponLogic : MonoBehaviour
     
     void SetAmmoText()
     {
-        if (ammoText)
+        if(_playerLogic.IsLocalPlayer())
         {
-            ammoText.text = "Ammo: " + _ammoCount;
+            UIManager.Instance.SetAmmoText(_ammoCount);
         }
     }
 }

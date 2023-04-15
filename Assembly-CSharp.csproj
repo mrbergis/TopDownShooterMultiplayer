@@ -60,6 +60,7 @@
     <Compile Include="Assets\Scripts\NetworkManagerPlus.cs" />
     <Compile Include="Assets\Scripts\PlayerLogic.cs" />
     <Compile Include="Assets\Scripts\ReloadBehaviour.cs" />
+    <Compile Include="Assets\Scripts\UIManager.cs" />
     <Compile Include="Assets\Scripts\WeaponLogic.cs" />
     <Compile Include="Assets\Scripts\WeaponLogicMP.cs" />
     <Compile Include="Assets\WarFX\Demo\Assets\CFX_AutoStopLoopedEffect.cs" />
